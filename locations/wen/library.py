@@ -21,6 +21,7 @@ class BookShelf(Location):
     self.id = 'wen_bookshelf'
     self.name = "Dungeon Library's Bookshelf"
     self.description = 'This is the bookshelf of the dungeon library!'
+    self.contents = []
     
   def do(self, player, command):
     if (command == 'l' or command == 'library'):
