@@ -9,10 +9,6 @@ class Portal(Item):
     self.name = "A Portal to {}'s domain.'".format(name.capitalize())
     self.description = 'A swirling glowing portal.  You can "enter" it.'
 
-    self.id = 'portal_' + name
-    self.name = "A Portal to {}'s domain.'".format(name)
-    self.description = 'A swirling glowing portal.  You can "enter" it.'
-
     # Override this so we can't be picked up...
     self.can_be_taken = False
 
@@ -21,7 +17,6 @@ class Portal(Item):
     self.location_id = location_id
 
   def do(self, player, command):
-
     if self.is_my_command(command, 'enter'):
       print('You enter the portal!')
       self.move_player(player, self.location_id)
