@@ -10,7 +10,7 @@ class Portal(Item):
     self.description = 'A swirling glowing portal.  You can "enter" it.'
 
     self.id = 'portal_' + name
-    self.name = "Portal to {}'s domain.'".format(name)
+    self.name = "A Portal to {}'s domain.'".format(name)
     self.description = 'A swirling glowing portal.  You can "enter" it.'
 
     # Override this so we can't be picked up...
