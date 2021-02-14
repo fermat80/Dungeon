@@ -6,7 +6,7 @@ class Portal(Item):
 
     # All items need these...
     self.id = 'portal_' + name.lower()
-    self.name = "Portal to {}'s domain.'".format(name.capitalize())
+    self.name = "A Portal to {}'s domain.'".format(name.capitalize())
     self.description = 'A swirling glowing portal.  You can "enter" it.'
 
     self.id = 'portal_' + name
