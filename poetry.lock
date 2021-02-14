@@ -1,0 +1,17 @@
+[[package]]
+category = "main"
+description = "UNKNOWN"
+name = "jkdicontainer"
+optional = false
+python-versions = "*"
+version = "0.1.2"
+
+[metadata]
+content-hash = "98e4140cfe703244aa9ebf89e127554acfa8f5409ce0145fa141971ea3c5b931"
+python-versions = "^3.8"
+
+[metadata.files]
+jkdicontainer = [
+    {file = "jkdicontainer-0.1.2-py2-none-any.whl", hash = "sha256:ec1518c602c020dd76bc5eaf35ad29662d6cb57d1d8732cac3e8714eebf8369f"},
+    {file = "jkdicontainer-0.1.2.tar.gz", hash = "sha256:ca6b7494e995da22b3bc181c79c0db8ac50740b6dce9fc9ac9adc152267274af"},
+]
