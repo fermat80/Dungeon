@@ -1,5 +1,6 @@
 from location import Location
 from items.master.box import Box
+from items.master.keys import BoxKey
 from items.master.letter import Letter
 from items.master.games import HangmanGame
 
@@ -9,7 +10,7 @@ class Foyer(Location):
     self.id = 'master_foyer'
     self.name = "Foyer of Dungeon Master's House"
     self.description = "You are in the foyer of the dungeon master's house!  On a table, you see a letter that you can 'read'.  There is an open doorway leading to the north."    
-    self.contents = [Letter()]
+    self.contents = [Letter(), BoxKey()]
 
   def do(self, player, command):
     if (command == 'n' or command == 'north'):

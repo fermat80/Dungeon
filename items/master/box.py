@@ -1,3 +1,4 @@
+import random
 from item import Item
 
 class Box(Item):
@@ -11,6 +12,7 @@ class Box(Item):
 
     # This is an extra variable that we will use to keep track of our status.
     self.is_lit = False
+    self.is_locked = True
 
   # Single words that allow us to look at or take this object...
   def is_named(self, name):
@@ -20,11 +22,22 @@ class Box(Item):
   # You could also simply change self.description.  See below how we do this with
   # self.name.
   def get_description(self):
+    s = self.description
+
     if self.is_lit:
-      return self.description + ' The button is lit!'
-    return self.description + ' The button is not lit!'
+      s += ' The button is lit!'
+    else:
+      s += ' The button is not lit.'
+
+    if self.is_locked:
+      s += ' The box is locked.  The box can be unlocked with a key that takes a list of numbers and returns them in a sorted list.'
+    else:
+      s += ' The box is unlocked.'
+
+    return s
   
   def do(self, player, command):
+
     if command == 'push button':      
       if not self.is_lit:
         print('You push the button on the box and the button lights.')
@@ -35,4 +48,26 @@ class Box(Item):
         self.name = 'A box.'
         self.is_lit = False
       return True
+
+    if self.is_my_command(command, 'unlock'):
+
+      if not self.is_locked:
+        print('The box is already unlocked.')
+        return True
+
+      cypher = list(range(20))
+      random.shuffle(cypher)
+
+      for item in player.contents:
+        result = item.unlock(self, cypher)
+        if result == sorted(cypher):
+          print('You try the ' + item.name)
+          print('Click!  The box is unlocked.')
+          self.is_locked = False
+          return True
+
+      print('None of the items you are carrying seem to unlock the box.')
+      return True
+
+    return False
 

@@ -19,3 +19,9 @@ class Item():
   def move_player(self, player, location_name):
     player.location = settings.dungeon.locations[location_name]
     player.location.display()
+
+  def do(self, player, command):
+    return False
+
+  def unlock(self, command, parms):
+    return None

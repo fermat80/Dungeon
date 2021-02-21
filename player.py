@@ -1,6 +1,6 @@
-from container import Container;
+from item import Item;
 
-class Player(Container):
+class Player(Item):
 
   def __init__(self, name, location):
     self.name = name
@@ -28,17 +28,17 @@ class Player(Container):
 
       if not command_done:
         for item in self.contents:
-          if self.try_do(item, self, command):
+          if item.do(self, command):
             command_done = True
             break
 
       if not command_done:
         for item in self.location.contents:
-          if self.try_do(item, self, command):
+          if item.do(self, command):
             command_done = True
             break
 
-      if not command_done and (self.do(command) or self.try_do(self.location, self, command)):
+      if not command_done and (self.do(command) or self.location.do(self, command)):
         command_done = True
 
       if not command_done:
@@ -110,10 +110,3 @@ class Player(Container):
   def get_command(self):
     print(': ', end='');
     return input()
-
-  def try_do(self, item, player, command):
-    try:
-      return item.do(player, command)
-    except AttributeError:
-      return False
-
