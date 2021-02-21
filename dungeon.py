@@ -1,6 +1,6 @@
 import locations.eden.load as eden
 import locations.ethan.load as ethan
-import locations.katherine.load as katherine
+import locations.kathrine.load as kathrine
 import locations.kevin.load as kevin
 import locations.master.load as master
 import locations.michael.load as michael
@@ -24,7 +24,7 @@ class Dungeon:
 
     self.load_wizard_location(eden)
     self.load_wizard_location(ethan)
-    self.load_wizard_location(katherine)
+    self.load_wizard_location(kathrine)
     self.load_wizard_location(kevin)
     self.load_wizard_location(master)
     self.load_wizard_location(michael)
