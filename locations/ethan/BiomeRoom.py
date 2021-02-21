@@ -1,9 +1,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 from locations import Location
 
 def locations():
   return [BiomeRoom(), ]
+=======
+from location import Location
+from items.ethan.book import Book
+>>>>>>> origin/master
 =======
 from location import Location
 from items.ethan.book import Book
@@ -21,7 +26,11 @@ class BiomeRoom(Location):
     self.description = 'You have found the biome room, it is a place with many different creatures in different enviornments.'
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     
+=======
+    self.contents = [Book()]
+>>>>>>> origin/master
 =======
     self.contents = [Book()]
 >>>>>>> origin/master
