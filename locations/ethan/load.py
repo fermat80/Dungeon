@@ -1,6 +1,6 @@
-from .BiomeRoom import Biomeroom
+from .BiomeRoom import BiomeRoom
 def locations():
-  return [Biomeroom()]
+  return [BiomeRoom()]
 
 #class BiomeRoom(Location):
 #  def

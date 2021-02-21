@@ -1,7 +1,5 @@
-from locations import Location
-from book import Book
-
-
+from location import Location
+from items.ethan.book import Book
 
 class BiomeRoom(Location):
 
