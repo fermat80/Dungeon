@@ -1,10 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 from locations import Location
 
 def locations():
   return [BiomeRoom(), ]
+=======
+from location import Location
+from items.ethan.book import Book
+>>>>>>> origin/master
 =======
 from location import Location
 from items.ethan.book import Book
@@ -27,7 +32,11 @@ class BiomeRoom(Location):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     
+=======
+    self.contents = [Book()]
+>>>>>>> origin/master
 =======
     self.contents = [Book()]
 >>>>>>> origin/master
