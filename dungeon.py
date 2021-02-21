@@ -6,6 +6,7 @@ import locations.master.load as master
 import locations.michael.load as michael
 import locations.selena.load as selena
 import locations.wen.load as wen
+import locations.wesley.load as wesley
 from locations.tower import TowerTop
 from items.portal import Portal
 
@@ -29,6 +30,7 @@ class Dungeon:
     self.load_wizard_location(michael)
     self.load_wizard_location(selena)
     self.load_wizard_location(wen)
+    self.load_wizard_location(wesley)
 
   def load_wizard_location(self, module):
     wizard_name = module.__name__[len('locations.'):module.__name__.find('.load')]
