@@ -17,8 +17,8 @@ class Portal(Item):
     self.location_id = location_id
 
   def do(self, player, command):
-    if self.is_my_command(command, 'enter'):
-      print('You enter the portal!')
+    if command == 'portal' or command == self.player_name or self.is_my_command(command, 'enter'):
+      print("You enter the portal to {}'s domain!".format(self.player_name.capitalize()))
       self.move_player(player, self.location_id)
       return True
 
