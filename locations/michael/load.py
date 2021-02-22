@@ -1,3 +1,6 @@
+from .building import Basement
+from .building import Well_Room
+from .building import Hallway
 
 def locations():
-  return []
+  return [Basement(), Well_Room(), Hallway()]
