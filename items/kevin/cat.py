@@ -14,4 +14,4 @@ class Cat(Item):
     return False
     
   def is_named(self, name):
-    return name == 'Cat' or name == 'Jiggles'
+    return name == 'cat' or name == 'jiggles'

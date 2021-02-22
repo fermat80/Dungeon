@@ -23,7 +23,7 @@ class Book(Item):
 
 
   def do(self, player, command):
-    if command == 'open book':      
+    if command == 'examine book':      
       if not self.is_open:
         print('You open the book about biomes and information pours into your head.')
         self.name = 'A open book'

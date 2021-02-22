@@ -1,5 +1,6 @@
 from .locations import HobbitHole
 from .locations import CatCafe
+from .locations import DarkForest
 
 def locations():
-  return [HobbitHole(), CatCafe()]
+  return [HobbitHole(), CatCafe(), DarkForest()]
