@@ -10,7 +10,7 @@ class BoxKey(Item):
   def is_named(self, name):
     return name == 'key' or name == 'box key';
 
-  def do(self, player, command):    
+  def do(self, player, command):
     return False
 
   def unlock(self, item, parms):    
