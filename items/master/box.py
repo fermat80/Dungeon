@@ -49,6 +49,7 @@ class Box(Item):
         self.is_lit = False
       return True
 
+    #if command == 'unlock box':
     if self.is_my_command(command, 'unlock'):
 
       if not self.is_locked:
@@ -58,7 +59,7 @@ class Box(Item):
       cypher = list(range(20))
       random.shuffle(cypher)
 
-      for item in player.contents:
+      for item in player.contents:         
         result = item.unlock(self, cypher)
         if result == sorted(cypher):
           print('You try the ' + item.name)
