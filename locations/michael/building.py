@@ -2,8 +2,7 @@ from location import Location
 from items.michael.notes import Note1
 from items.michael.notes import Note2
 from items.michael.well import Well
-
-
+#from items.michael.well import Key
 
 class Basement(Location):
 
