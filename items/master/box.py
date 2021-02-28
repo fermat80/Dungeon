@@ -51,24 +51,16 @@ class Box(Item):
 
     #if command == 'unlock box':
     if self.is_my_command(command, 'unlock'):
-
-      if not self.is_locked:
-        print('The box is already unlocked.')
-        return True
-
-      cypher = list(range(20))
-      random.shuffle(cypher)
-
-      for item in player.contents:         
-        result = item.unlock(self, cypher)
-        if result == sorted(cypher):
-          print('You try the ' + item.name)
-          print('Click!  The box is unlocked.')
-          self.is_locked = False
-          return True
-
-      print('None of the items you are carrying seem to unlock the box.')
-      return True
+      return self.try_unlock(player, command)
 
     return False
 
+  def get_cypher(self):
+
+    cypher = list(range(10))
+    random.shuffle(cypher)
+
+    return cypher
+
+  def check_secret(self, cypher, secret):
+    return secret == sorted(cypher)
