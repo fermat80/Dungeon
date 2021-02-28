@@ -13,7 +13,7 @@ class Well(Item):
 
   def do(self, player, command):
     if command == 'pick up key' or command=='pick up':
-      Key=True
+      self.Key=True
       return True      
     return False
 
