@@ -5,7 +5,7 @@ class HangmanGame(Item):
 
   def __init__(self):
     self.id = 'master_hangman'
-    self.name = 'A game of hangman'
+    self.name = 'Game of Hangman'
     self.description = 'This is the classic game of hangman.  You can "play" it!'
 
   def do(self, player, command):

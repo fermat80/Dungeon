@@ -5,20 +5,15 @@ class Coat(Item):
   def __init__(self):
     self.id = 'Kathrine.coat'
     self.name = 'Coat'
-    self.description = "A fluffy orange coat. "
-  wear_coat=False
+    self.description = "A fluffy orange coat made out of a fluffy orange tabby. "
+  
 
-  def wear(self, player, command, wear_coat):
-    if command == 'wear coat':
-      print("You are now wearing a coat.")
-      wear_coat=True
-  def yn(self, player, command, wear_coat):
-    if command == 'clothes':
-      if wear_coat==True:
-        print("You are wearing a coat.")
-        return True
-      return False
+  def do(self, item, player, command):
+    if command== 'coat':
+      print("You attempt to wear the coat. It is much to small for you.")
+    
+        
 
   def is_named(self, name):
-    return name == 'wear'
+    return name == 'coat'
   
