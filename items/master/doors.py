@@ -1,6 +1,52 @@
 from item import Item
 import random
 
+class SumDoor(Item):
+
+  def __init__(self):
+    self.id = 'master_sumdoor'
+    self.name = 'Sum Door to the east'
+    self.description = "The Sum challenge door."
+
+    self.is_locked = True
+    self.can_be_taken = False
+
+  def get_description(self):
+
+    s = self.description
+
+    if self.is_locked:
+      s += ' The door is locked. '
+      s += ' Given two numbers, return their sum.'
+    else:
+      s += ' The door is unlocked!'
+
+    return s
+
+  def is_named(self, name):
+    return name in ['door', 'sum', 'sum door']
+
+  def do(self, player, command):
+
+    if self.is_my_command(command, 'enter') or command == 'e' or command == 'east':
+
+      if self.is_locked:
+        print('The {} is locked.'.format(self.name))
+        return True
+      
+      print('The door is unlocked, but the area to the east is not finished yet.')
+      return True
+
+    #if command == 'unlock door':
+    if self.is_my_command(command, 'unlock'):
+      return self.try_unlock(player, command)
+
+  def get_cypher(self):
+    return (15,20)
+
+  def check_secret(self, cypher, secret):
+    return secret == 35
+
 class TwoSumDoor(Item):
 
   challenge = """
@@ -65,7 +111,12 @@ Output: Because nums[0] + nums[1] == 9, we return [0, 1].
     if not secret:
       return False
 
-    return self.solve(cypher) == sorted(secret)
+    nums, target = cypher
+
+    i, j = secret
+    return nums[i] + nums[j] == target
+
+    #return self.solve(cypher) == sorted(secret)
 
   def solve(self, cypher):
 
