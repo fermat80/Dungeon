@@ -1,5 +1,7 @@
 import random
 from item import Item
+from .keys import TwoSumKey
+from .keys import SumKey
 
 class Box(Item):
 
@@ -7,12 +9,14 @@ class Box(Item):
 
     # These are required for all items...
     self.id = 'master_box'
-    self.name = 'A box'
+    self.name = 'Box'
     self.description = 'A black box with a button that you can "push".'
 
     # This is an extra variable that we will use to keep track of our status.
     self.is_lit = False
     self.is_locked = True
+
+    self.contents = [TwoSumKey(), SumKey()]
 
   # Single words that allow us to look at or take this object...
   def is_named(self, name):
@@ -54,6 +58,17 @@ class Box(Item):
       return self.try_unlock(player, command)
 
     return False
+
+  def display_contents(self):
+    if not self.is_locked:
+      super().display_contents()
+    return
+
+  def can_be_taken_from(self, player, item):
+    return not self.is_locked
+
+  def can_be_put_into_by(self, player):
+    return not self.is_locked
 
   def get_cypher(self):
 
