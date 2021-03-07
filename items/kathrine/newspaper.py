@@ -11,8 +11,13 @@ class Newspaper(Item):
     if command == 'read newspaper'or command=='read paper'or command=='read news':
 
       article = """
-Because there are health problems spreading to our realm, the government advises fairies to stay within their mushrooms and refrain from visiting others! When leaving you mushrooms to collect food, please wear a mask! They are being handed out at the City Tunnel in your area! Each fairy may take three."""
+COVID-19 vaccines are safe
+Millions of people in the United States have received COVID-19 vaccines, and these vaccines have undergone the most intensive safety monitoring in U.S. history. This monitoring includes using both established and new safety monitoring systems to make sure that COVID-19 vaccines are safe. These vaccines cannot give you COVID-19."""
       print(article)
+
+      return True 
+
+   
 
   def is_named(self, name):
     return name == 'newspaper'
