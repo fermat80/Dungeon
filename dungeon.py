@@ -9,6 +9,7 @@ import locations.wen.load as wen
 import locations.wesley.load as wesley
 from locations.tower import TowerTop
 from items.portal import Portal
+from replit import db
 
 from player import Player;
 
@@ -22,15 +23,10 @@ class Dungeon:
 
     self.locations['tower_top'] = TowerTop()
 
-    self.load_wizard_location(eden)
-    self.load_wizard_location(ethan)
-    self.load_wizard_location(kathrine)
-    self.load_wizard_location(kevin)
-    self.load_wizard_location(master)
-    self.load_wizard_location(michael)
-    self.load_wizard_location(selena)
-    self.load_wizard_location(wen)
-    self.load_wizard_location(wesley)
+    modules = [eden, ethan, kathrine, kevin, master, michael, selena, wen, wesley]
+
+    for module in modules:
+      self.load_wizard_location(module)
 
   def load_wizard_location(self, module):
     wizard_name = module.__name__[len('locations.'):module.__name__.find('.load')]
@@ -46,4 +42,10 @@ class Dungeon:
   
   def run(self):
     print('Welcome to the dungeon!') 
-    Player('Player', self.locations['tower_top']).play()
+
+    location_id = 'tower_top'
+
+    if ('Dungeon', 'PlayerLocation') in db:
+      location_id = db[('Dungeon', 'PlayerLocation')]
+      
+    Player('Player', self.locations[location_id]).play()

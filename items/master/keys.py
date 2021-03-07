@@ -13,8 +13,25 @@ class BoxKey(Item):
   def do(self, player, command):
     return False
 
-  def unlock(self, item, parms):    
-    return sorted(parms) if parms else None
+  def unlock(self, item, cypher):  
+    return sorted(cypher) if cypher else None
+
+class SumKey(Item):
+
+  def __init__(self):
+    self.id = 'master_sumkey'
+    self.name = "Sum Key"
+    self.description = "A rather plain key that can open the sum door."
+
+  def is_named(self, name):
+    return name in ['key', 'sum', 'sum key']
+
+  def do(self, player, command):
+    return False
+
+  def unlock(self, item, cypher):
+    a, b = cypher
+    return a+b
 
 class TwoSumKey(Item):
 
