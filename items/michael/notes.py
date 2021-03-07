@@ -7,13 +7,12 @@ class Note1(Item):
 
     self.name = 'Note'
 
-    self.description = " You examine the note. It seems to be for somebody. Some parts of the note are worn down, making them unreadable. It seems to be part of a notebook. You can read it."
+    self.description = " You examine the note. It's written in scrawny black ink and the paper is yellow. You can read it."
 
   def do(self, player, command):
     if command == 'read note' or command=='read':
 
-      message = """There are dang rs.ȩ̵̷̴̶̸̷̷̵̷̴̷̴̷̸̴̷̶̧̧̢̨̢̢̧̛̛̛͔̪̯̦͚̱͔̗̻̟̫̼̠͓̱͎̟̘͖̫̙̤̭̫̯͚̰̺̤̭̥̠̲͎̤̖͉̬̼̟̯̫̯̠̼̠̤̭͉̬͎͕̙̙̩͉̲̮̳̬͔͈̺̤̗̮̭͉̯̠̱̓̈́͛̃̿̒̄̈́̔̿͂͋̍͑͆̂̀̒̌̅͋̎̾̐̈́͌̽̾̊̍̋̊̐̏̎͐̅̔͛̂͛͆͂̐̒̉̀͗̄̈́̒̈́͗͌͐̓̓͂̆̄̓̆̌͐̓̄̈́̀̌̂̋̉̑̃̽̈́̈̈́͑̋͊̌̄̉́̎̊̚̕͘͘̚̕̕̕͘̚͜͝͝͠͠͝͠͠͝ͅ You mus  watch your step.ȩ̵̷̴̶̸̷̷̵̷̴̷̴̷̸̴̷̶̧̧̢̨̢̢̧̛̛̛͔̪̯̦͚̱͔̗̻̟̫̼̠͓̱͎̟̘͖̫̙̤̭̫̯͚̰̺̤̭̥̠̲͎̤̖͉̬̼̟̯̫̯̠̼̠̤̭͉̬͎͕̙̙̩͉̲̮̳̬͔͈̺̤̗̮̭͉̯̠̱̓̈́͛̃̿̒̄̈́̔̿͂͋̍͑͆̂̀̒̌̅͋̎̾̐̈́͌̽̾̊̍̋̊̐̏̎͐̅̔͛̂͛͆͂̐̒̉̀͗̄̈́̒̈́͗͌͐̓̓͂̆̄̓̆̌͐̓̄̈́̀̌̂̋̉̑̃̽̈́̈̈́͑̋͊̌̄̉́̎̊̚̕͘͘̚̕̕̕͘̚͜͝͝͠͠͝͠͠͝ͅ Thin s h ve gone t rribly wro g. Wat h ou  for thȩ̵̷̴̶̸̷̷̵̷̴̷̴̷̸̴̷̶̧̧̢̨̢̢̧̛̛̛͔̪̯̦͚̱͔̗̻̟̫̼̠͓̱͎̟̘͖̫̙̤̭̫̯͚̰̺̤̭̥̠̲͎̤̖͉̬̼̟̯̫̯̠̼̠̤̭͉̬͎͕̙̙̩͉̲̮̳̬͔͈̺̤̗̮̭͉̯̠̱̓̈́͛̃̿̒̄̈́̔̿͂͋̍͑͆̂̀̒̌̅͋̎̾̐̈́͌̽̾̊̍̋̊̐̏̎͐̅̔͛̂͛͆͂̐̒̉̀͗̄̈́̒̈́͗͌͐̓̓͂̆̄̓̆̌͐̓̄̈́̀̌̂̋̉̑̃̽̈́̈̈́͑̋͊̌̄̉́̎̊̚̕͘͘̚̕̕̕͘̚͜͝͝͠͠͝͠͠͝ͅ 
-      """
+      message = """How did you get here?"""
 
       print(message)
       return True      
@@ -29,12 +28,12 @@ class Note2(Item):
 
     self.name = 'Note'
 
-    self.description = " You examine the note. It seems to be for somebody. The note is in fair condition, but is ripped off at one part. It seems to be part of a notebook. You can read it."
+    self.description = " You examine the note. It's written in scrawny black ink and the paper is yellow. You can read it."
 
   def do(self, player, command):
     if command == 'read note' or command=='read':
 
-      message = """ Nothing in my life could have prepared me for this. I hope that you will be prepared for what comes. Sometimes I feel time flies, but others times time ticks by very slowly. But keep track of time, because midnight shall be of significance. I hope you are luckier than I am."""
+      message = " Please take this as a warning. I advise you to leave, before I have to deal with you myself."
 
 
       print(message)

@@ -4,7 +4,9 @@ from items.master.keys import BoxKey
 from items.master.letter import Letter
 from items.master.games import HangmanGame
 from items.master.doors import TwoSumDoor
+from items.master.doors import SumDoor
 from items.master.keys import TwoSumKey
+from items.master.keys import SumKey
 from items.master.creatures import Dragon
 
 class Foyer(Location):
@@ -75,8 +77,8 @@ class EasyChallengeRoom(Location):
     self.id = 'master_easychallengeroom'
     self.name = 'Easy Challenge Room'
     self.description = 'This is the easy challenge room!  The challenge area is to the south.'
-    #self.contents = [TwoSumDoor(), TwoSumKey()]
-    self.contents = [TwoSumDoor()]
+    self.contents = [TwoSumDoor(), SumDoor()]
+    #self.contents = [TwoSumDoor()]
 
   def do(self, player, command):
     if (command == 's' or command == 'south'):

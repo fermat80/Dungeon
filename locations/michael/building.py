@@ -14,7 +14,7 @@ class Basement(Location):
 
   def do(self, player, command):
     if (command == 'n' or command == 'north'):
-      self.move_player(player, 'well_room')
+      self.move_player(player, 'michael.well')
       return True; 
     if (command == 's' or command == 'south'):
       self.move_player(player, 'hallway')    
@@ -23,7 +23,7 @@ class Basement(Location):
 class Well_Room(Location):
 
   def __init__(self):
-    self.id = 'well'
+    self.id = 'michael.well'
     self.name = "Well Room"
     self.description = 'The room is empty, except for a well. There is a note on the side of the well.'
     self.contents = [Note2(), Well()]
