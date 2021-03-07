@@ -2,14 +2,22 @@ from item import Item
 
 class Well(Item):
 
-  Key=False
-
   def __init__(self):
-    self.id = 'Michael.Well'
-
+    self.id = 'michael.well'
     self.name = 'Well'
+    self.description = " It is a well with clear water at the bottom. "
+    self.key=True
 
-    self.description = " The water in the well is wet and clear. In the bucket of the well, there is a key. You can pick up the key."
+  def get_description(self):
+
+    s = self.description
+    
+    if self.key:
+      s += 'It is a well with clear water at the bottom. In the bucket of the well, there is a key. You can pick up the key.'
+    else:
+      s = 'It is a well with clear water at the bottom.'
+
+    return s
 
   def do(self, player, command):
     if command == 'pick up key' or command=='pick up':
@@ -18,4 +26,4 @@ class Well(Item):
     return False
 
   def is_named(self, name):
-    return name == 'Well'
+    return name == 'well'
