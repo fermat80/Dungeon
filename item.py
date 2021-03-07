@@ -1,8 +1,14 @@
+from replit import db
 import settings
 
-class Item():
+class Item(object):
 
   can_be_taken = True
+
+  def __new__(cls, *args, **kwargs):
+    obj = super(Item, cls).__new__(cls)
+    obj.contents = []
+    return obj
 
   def is_named(self, name):
     return self.id.lower() == name.lower()
@@ -25,11 +31,31 @@ class Item():
   def get_description(self):
     return self.description
 
+  def display(self):
+    print(self.get_description())
+    self.display_contents()
+    return True
+
+  def display_contents(self):
+    if len(self.contents) > 0:
+      print(' '*2 + 'The {} contains:'.format(self.name))
+      for subitem in self.contents:
+        print(' '*4 + subitem.name)
+
   def can_be_taken_by(self, player):
     return self.can_be_taken
 
+  def can_be_put_into_by(self, player):
+    return False
+
+  def can_be_taken_from(self, player, item):
+    if not item in self.contents:
+      return False
+    return True
+
   def move_player(self, player, location_name):
     player.location = settings.dungeon.locations[location_name]
+    db[('Dungeon', 'PlayerLocation')] = player.location.id
     player.location.display()
 
   def do(self, player, command):
@@ -53,6 +79,7 @@ class Item():
 
     cypher = self.get_cypher()
 
+    item = None
     for item in player.contents:
 
       if item_name != '' and not item.is_named(item_name):
@@ -75,7 +102,7 @@ class Item():
 
     if item_name == '':
       print('None of the items you are carrying seem to unlock ' + self.name)
-    elif item:
+    elif item and item.is_named(item_name):
       print(item.name + ' failed to unlock ' + self.name)
     else:
       print('You do not have ' + item_name)
