@@ -1,4 +1,4 @@
-from .house import FairyHouse
+from .Mushroom import FairyHouse
 
 def locations():
   return [FairyHouse()]

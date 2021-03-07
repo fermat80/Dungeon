@@ -1,3 +1,4 @@
+from replit import db
 import settings
 
 class Location():  
@@ -17,6 +18,7 @@ class Location():
 
   def move_player(self, player, location_name):
     player.location = settings.dungeon.locations[location_name]
+    db[('Dungeon', 'PlayerLocation')] = player.location.id
     player.location.display()
 
   def do(self, player, command):

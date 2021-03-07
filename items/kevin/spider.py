@@ -5,9 +5,17 @@ class GiantSpider(Item):
   def __init__(self):
     self.id = 'giant_spider'
     self.name = 'Giant Spider'
-    self.description = 'A giant enemy spider, it looks at you menacingly'
+    self.description = 'A giant enemy spider, it looks at you menacingly. You see a box right behind the spider. Do you wish to attack?'
 
   def do(self, player, command):
+    if command == 'attack spider' or 'attack giant spider' or 'attack giantspider':      
+      
+      for item in player.contents:
+        if item.name == 'cat':
+          print('The cat frantically tries to get out of your arms to attack the spider!')
+          
+      return True
+      
     return False
 
   def is_named(self, name):
