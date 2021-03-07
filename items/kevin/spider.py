@@ -12,8 +12,10 @@ class GiantSpider(Item):
       
       for item in player.contents:
         if item.name == 'cat':
+          print('The cat frantically tries to get out of your arms to attack the spider!')
           
       return True
+      
     return False
 
   def is_named(self, name):
