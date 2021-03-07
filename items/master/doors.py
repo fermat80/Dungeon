@@ -89,7 +89,7 @@ Output: Because nums[0] + nums[1] == 9, we return [0, 1].
         print('The {} is locked.'.format(self.name))
         return True
       
-      print('The door is unlocked, but the area to the north is not finished yet.')
+      self.move_player(player, 'master_twosumcloset')
       return True
 
     #if command == 'unlock door':

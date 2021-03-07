@@ -23,8 +23,7 @@ class Player(Item):
 
       command = self.get_command()
 
-      if command == 'q' or command == 'quit':
-        print('Goodbye!')
+      if self.do_quit(command) or self.do_reset(command):
         return False
 
       if not command_done:
@@ -56,8 +55,7 @@ class Player(Item):
       self.do_put,
       self.do_drop,
       self.do_examine,
-      self.do_emote,
-      self.do_reset
+      self.do_emote
       ]
 
     for func in todo:
@@ -66,6 +64,12 @@ class Player(Item):
     
     return False
   
+  def do_quit(self, command):
+    
+    if command == 'q' or command == 'quit':
+      print('Goodbye!')
+      return True
+
   def do_look(self, command):
 
     if command == 'l' or command == 'look':

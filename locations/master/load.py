@@ -1,9 +1,17 @@
 from .house import Foyer
 from .house import GameRoom
-from .house import EasyChallengeRoom
-from .house import MediumChallengeRoom
-from .house import HardChallengeRoom
-from .house import ChallengeArea
+from .challenge import EasyChallengeRoom
+from .challenge import MediumChallengeRoom
+from .challenge import HardChallengeRoom
+from .challenge import ChallengeArea
+from .challenge import TwoSumCloset
 
 def locations():
-  return [Foyer(), GameRoom(), EasyChallengeRoom(), MediumChallengeRoom(), HardChallengeRoom(), ChallengeArea()]
+  return [
+    Foyer(),
+    GameRoom(),
+    EasyChallengeRoom(),
+    MediumChallengeRoom(),
+    HardChallengeRoom(),
+    ChallengeArea(),
+    TwoSumCloset()]

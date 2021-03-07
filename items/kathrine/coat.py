@@ -8,7 +8,7 @@ class Coat(Item):
     self.description = "A fluffy orange coat made out of a fluffy orange tabby. "
   
 
-  def do(self, item, player, command):
+  def do(self, player, command):
     if command== 'coat':
       print("You attempt to wear the coat. It is much to small for you.")
     

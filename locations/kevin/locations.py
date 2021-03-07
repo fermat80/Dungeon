@@ -52,5 +52,5 @@ class DarkForest(Location):
   def do(self, player, command):
     if (command == 'n' or command == 'north'):
       self.move_player(player, 'hobbit_hole')
-      return True;     
-    return False;
+      return True
+    return False

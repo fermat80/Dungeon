@@ -57,6 +57,7 @@ class Item(object):
     player.location = settings.dungeon.locations[location_name]
     db[('Dungeon', 'PlayerLocation')] = player.location.id
     player.location.display()
+    return True
 
   def do(self, player, command):
     return False
