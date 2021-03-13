@@ -1,36 +1,5 @@
 from item import Item
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
 class Pic(Item):
     def __init__(self):
         self.id = 'Pic'
@@ -39,57 +8,8 @@ class Pic(Item):
         self.can_be_taken = True
 
     def is_named(self, name):
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return name == 'pic'
-=======
         #return name == 'pic'
         return name in ['pic', 'picture']
->>>>>>> origin/master
-=======
-        #return name == 'pic'
-        return name in ['pic', 'picture']
->>>>>>> origin/master
-=======
-        #return name == 'pic'
-        return name in ['pic', 'picture']
->>>>>>> origin/master
-=======
-        #return name == 'pic'
-        return name in ['pic', 'picture']
->>>>>>> origin/master
-=======
-        #return name == 'pic'
-        return name in ['pic', 'picture']
->>>>>>> origin/master
-=======
-        #return name == 'pic'
-        return name in ['pic', 'picture']
->>>>>>> origin/master
-=======
-        #return name == 'pic'
-        return name in ['pic', 'picture']
->>>>>>> origin/master
-=======
-        #return name == 'pic'
-        return name in ['pic', 'picture']
->>>>>>> origin/master
-=======
-        #return name == 'pic'
-        return name in ['pic', 'picture']
->>>>>>> origin/master
-=======
-        #return name == 'pic'
-        return name in ['pic', 'picture']
->>>>>>> origin/master
 
     def do(self,player,command):
       if command=='take pic':
