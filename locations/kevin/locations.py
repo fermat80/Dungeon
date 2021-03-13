@@ -16,13 +16,11 @@ class HobbitHole(Location):
   def do(self, player, command):
     if (command == 'n' or command == 'north'):
       self.move_player(player, 'cat_cafe')
-      return True;     
-    return False;
+      return True;   
 
-  def do(self, player, command):
     if (command == 's' or command == 'south'):
       self.move_player(player, 'dark_forest')
-      return True;     
+      return True;  
     return False;
 
 class CatCafe(Location):

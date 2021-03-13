@@ -17,9 +17,9 @@ class Door(Item):
     s = self.description
 
     if self.is_locked:
-      s += ' The door is locked.  The door can be unlocked by a key.'
+      s += ' The door seems to be locked.'
     else:
-      s += ' The door is unlocked.'
+      s += ' A dusty wooden door. There is a handle with a keyhole.'
 
     return s
   

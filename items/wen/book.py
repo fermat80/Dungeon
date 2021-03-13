@@ -1,4 +1,5 @@
 from item import Item
+from .flashlight import Flashlight
 
 class Book(Item):
 
@@ -11,6 +12,9 @@ class Book(Item):
 
     # This is an extra variable that we will use to keep track of our status.
     self.is_bookOpened = False
+    Flashlight.is_FlashlightOn = False
+    #self.contents = [Flashlight()]
+    
 
   # Single words that allow us to look at or take this object...
   def is_named(self, name):
@@ -25,14 +29,33 @@ class Book(Item):
     return self.description + ' The book is closed!'
   
   def do(self, player, command):
-    if command == 'open book':      
-      if not self.is_bookOpened:
-        print('You open the book to see the spells.')
+    if command == 'open book':  
+      if not self.is_bookOpened and not Flashlight.is_FlashlightOn:
+        print('You need to turn on the flashlight first.')
+        self.name = 'A book with spells.'
+        self.is_bookOpened = False
+        return True 
+      
+      if not self.is_bookOpened and Flashlight.is_FlashlightOn:
+        print('The book is opened, you can study the spells now.')
         self.name = 'A book with spells.'
         self.is_bookOpened = True
+        return True
+      else:
+        print('The book is already opened.')
+        self.name = 'A book.'
+        self.is_bookOpened = True
+        return True
+
+    if command == 'close book':      
+      if not self.is_bookOpened:
+        print('The book is already closed.')
+        self.name = 'A book with spells.'
+        self.is_bookOpened = False
+        return True
       else:
         print('You close the book to undo the spells.')
         self.name = 'A book.'
         self.is_bookOpened = False
-      return True
+        return True
 
