@@ -42,12 +42,15 @@ class Item(object):
       for subitem in self.contents:
         print(' '*4 + subitem.name)
 
+  # True if this item can be taken the the player...
   def can_be_taken_by(self, player):
     return self.can_be_taken
 
-  def can_be_put_into_by(self, player):
+  # True if this item is allowed to be put inside this item by the player...
+  def can_be_put_into(self, player, item):
     return False
 
+  # True if this item is allowed to be taken out of this item by the player...
   def can_be_taken_from(self, player, item):
     if not item in self.contents:
       return False
@@ -61,7 +64,6 @@ class Item(object):
 
   def do(self, player, command):
     return False
-
 
   def unlock(self, command, parms):
     return None
