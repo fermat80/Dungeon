@@ -102,7 +102,7 @@ class Player(Item):
           if from_item.is_named(from_item_name):            
             for item in from_item.contents:
               if item.is_named(item_name):
-                if item.can_be_taken_by(self) and from_item.can_be_taken_from(self, item):
+                if from_item.can_be_taken_from(self, item):
                   self.contents.append(item)
                   from_item.contents.remove(item)
                   print('You take: ' + item.name)
@@ -147,7 +147,7 @@ class Player(Item):
         if item.is_named(item_name):
           for in_item in self.contents + self.location.contents:
             if in_item.is_named(in_item_name):
-              if in_item.can_be_put_into_by(self):
+              if in_item.can_be_put_into(self, item):
                 in_item.contents.append(item)
                 self.contents.remove(item)
                 print('You put {} in {}'.format(item.name, in_item.name))
