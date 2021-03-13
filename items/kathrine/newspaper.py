@@ -14,6 +14,7 @@ class Newspaper(Item):
 COVID-19 vaccines are safe
 Millions of people in the United States have received COVID-19 vaccines, and these vaccines have undergone the most intensive safety monitoring in U.S. history. This monitoring includes using both established and new safety monitoring systems to make sure that COVID-19 vaccines are safe. These vaccines cannot give you COVID-19."""
       print(article)
+      return True
 
       return True 
 

@@ -9,7 +9,7 @@ class GiantSpider(Item):
 
   def do(self, player, command):
 
-    if command == 'attack spider' or 'attack giant spider' or 'attack giantspider':      
+    if command in ['attack spider', 'attack giant spider', 'attack giantspider']:      
       
       for item in player.contents:
         if item.name == 'cat':

@@ -15,10 +15,34 @@ class Math(Item):
         print("100%")
       else:
         print("Incorrect!")
+<<<<<<< HEAD
         return True
 
       return False
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return True
+      return False
+        
+>>>>>>> origin/master
 
+=======
+      return True
+      
+    return False
+>>>>>>> origin/master
+=======
+      return True
+      
+    return False
+>>>>>>> origin/master
+=======
+      return True
+      
+    return False
+>>>>>>> origin/master
 
   def is_named(self, name):
     return name == 'math problem' or 'Math Problem'
