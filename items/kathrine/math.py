@@ -15,6 +15,8 @@ class Math(Item):
         print("100%")
       else:
         print("Incorrect!")
+        return True
+      return False
         
 
 
