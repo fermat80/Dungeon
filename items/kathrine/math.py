@@ -16,10 +16,16 @@ class Math(Item):
       else:
         print("Incorrect!")
 <<<<<<< HEAD
+<<<<<<< HEAD
         return True
       return False
         
 
+=======
+      return True
+      
+    return False
+>>>>>>> origin/master
 =======
       return True
       
