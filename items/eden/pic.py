@@ -5,7 +5,10 @@ from item import Item
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 =======
@@ -29,7 +32,12 @@ class Pic(Item):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         return name == 'pic'
+=======
+        #return name == 'pic'
+        return name in ['pic', 'picture']
+>>>>>>> origin/master
 =======
         #return name == 'pic'
         return name in ['pic', 'picture']
