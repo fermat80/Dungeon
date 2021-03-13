@@ -15,8 +15,8 @@ class Math(Item):
         print("100%")
       else:
         print("Incorrect!")
-        
-
+      return True
+    return False
 
   def is_named(self, name):
     return name == 'math problem' or 'Math Problem'
