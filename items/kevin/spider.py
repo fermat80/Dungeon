@@ -9,12 +9,16 @@ class GiantSpider(Item):
 
   def do(self, player, command):
 
-    if command == 'attack spider' or 'attack giant spider' or 'attack giantspider':      
+    if command in ['attack spider', 'attack giant spider', 'attack giantspider']:      
       
       for item in player.contents:
-        if item.name == 'cat':
-          print('The cat frantically tries to get out of your arms to attack the spider!')
-          
+        if item.name == 'Cat':
+          print('The cat frantically tries to get out of your arms to attack the spider! The spider flees!')
+          self.name = 'Gone Spider'
+          return True
+      
+      print('The spider spins you in a web! You feel yourself being dragged somewhere')
+      self.move_player(player, 'hobbit_hole')
       return True
       
     return False

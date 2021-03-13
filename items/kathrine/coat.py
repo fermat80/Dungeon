@@ -6,11 +6,7 @@ class Coat(Item):
     self.id = 'Kathrine.coat'
     self.name = 'Coat'
     self.description = "A fluffy orange coat made out of a fluffy orange tabby. "
-  
 
-  def do(self, player, command):
-    if command== 'coat':
-      print("You attempt to wear the coat. It is much to small for you.")
     
         
 
