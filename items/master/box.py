@@ -67,7 +67,7 @@ class Box(Item):
   def can_be_taken_from(self, player, item):
     return not self.is_locked
 
-  def can_be_put_into_by(self, player):
+  def can_be_put_into(self, player, item):
     return not self.is_locked
 
   def get_cypher(self):
