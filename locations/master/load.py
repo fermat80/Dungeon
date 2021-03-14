@@ -5,6 +5,7 @@ from .challenge import MediumChallengeRoom
 from .challenge import HardChallengeRoom
 from .challenge import ChallengeArea
 from .challenge import TwoSumCloset
+from .challenge import ShuffleCloset
 
 def locations():
   return [
@@ -14,4 +15,5 @@ def locations():
     MediumChallengeRoom(),
     HardChallengeRoom(),
     ChallengeArea(),
-    TwoSumCloset()]
+    TwoSumCloset(),
+    ShuffleCloset()]

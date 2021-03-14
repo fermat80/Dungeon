@@ -81,21 +81,27 @@ class Item(object):
       idx = commands.index('with')
       item_name = ' '.join(commands[idx+1:])      
 
-    cypher = self.get_cypher()
-
     item = None
     for item in player.contents:
 
       if item_name != '' and not item.is_named(item_name):
         continue
-     
-      print(item.name + ' was given: ' + str(cypher))
-      try:
-        secret = item.unlock(self, cypher)
-      except TypeError:        
-        secret = None
-      print(item.name + ' returned ' + str(secret))
-      if self.check_secret(cypher, secret):
+
+      all_unlock = True
+      for cypher in self.get_cyphers():
+
+        print(item.name + ' was given: ' + str(cypher))
+        try:
+          secret = item.unlock(self, cypher)
+        except:
+          secret = None
+        print(item.name + ' returned ' + str(secret))
+        if not self.check_secret(cypher, secret):
+          print('Failed!')
+          all_unlock = False
+          break
+
+      if all_unlock:
         print('You try the ' + item.name)
         print('Click! {} is unlocked.'.format(self.name))
         self.is_locked = False
@@ -112,6 +118,9 @@ class Item(object):
       print('You do not have ' + item_name)
 
     return True
+
+  def get_cyphers(self):
+    return [self.get_cypher()]
 
   def get_cypher(self):
     return None

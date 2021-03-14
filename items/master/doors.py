@@ -1,15 +1,20 @@
 from item import Item
 import random
+from replit import db
 
 class SumDoor(Item):
 
   def __init__(self):
     self.id = 'master_sumdoor'
     self.name = 'Sum Door to the east'
-    self.description = "The Sum challenge door."
+    self.description = "The Sum challenge door."    
 
     self.is_locked = True
     self.can_be_taken = False
+    self.save_key = ('master', self.id + "_lock")
+
+    if self.save_key in db:
+      self.is_locked = db[self.save_key]
 
   def get_description(self):
 
@@ -28,7 +33,7 @@ class SumDoor(Item):
 
   def do(self, player, command):
 
-    if self.is_my_command(command, 'enter') or command == 'e' or command == 'east':
+    if self.is_my_command(command, 'enter') or command in ['e', 'east']:
 
       if self.is_locked:
         print('The {} is locked.'.format(self.name))
@@ -37,9 +42,10 @@ class SumDoor(Item):
       print('The door is unlocked, but the area to the east is not finished yet.')
       return True
 
-    #if command == 'unlock door':
     if self.is_my_command(command, 'unlock'):
-      return self.try_unlock(player, command)
+      if self.try_unlock(player, command):
+        db[self.save_key] = self.is_locked
+        return True
 
   def get_cypher(self):
     return (15,20)
@@ -65,6 +71,10 @@ Output: Because nums[0] + nums[1] == 9, we return [0, 1].
     self.description = "The Two-Sum challenge door."
     self.is_locked = True
     self.can_be_taken = False
+    self.save_key = ('master', self.id + "_lock")
+
+    if self.save_key in db:
+      self.is_locked = db[self.save_key]
 
   def get_description(self):
 
@@ -83,7 +93,7 @@ Output: Because nums[0] + nums[1] == 9, we return [0, 1].
 
   def do(self, player, command):
 
-    if self.is_my_command(command, 'enter') or command == 'n' or command == 'north':
+    if self.is_my_command(command, 'enter') or command in ['n', 'north']:
 
       if self.is_locked:
         print('The {} is locked.'.format(self.name))
@@ -94,7 +104,9 @@ Output: Because nums[0] + nums[1] == 9, we return [0, 1].
 
     #if command == 'unlock door':
     if self.is_my_command(command, 'unlock'):
-      return self.try_unlock(player, command)
+      if self.try_unlock(player, command):
+        db[self.save_key] = self.is_locked
+        return True
 
   def get_cypher(self):
 
@@ -130,6 +142,69 @@ Output: Because nums[0] + nums[1] == 9, we return [0, 1].
       if y in x and i != x[y]:
         return [i, x[y]]
 
+class ShuffleDoor(Item):
 
+  challenge = """
+Given the array nums consisting of 2n elements in the form [x1,x2,...,xn,y1,y2,...,yn].
 
+Return the array in the form [x1,y1,x2,y2,...,xn,yn].
 
+Example 1:
+
+   Input: nums = [2,5,1,3,4,7], n = 3
+   Output: [2,3,5,4,1,7]
+"""
+
+  def __init__(self):
+    self.id = 'master_shuffledoor'
+    self.name = 'Shuffle Door to the west'
+    self.description = "The Shuffle challenge door."
+
+    self.is_locked = True
+    self.can_be_taken = False
+    self.save_key = ('master', self.id + "_lock")
+    
+    if self.save_key in db:
+      self.is_locked = db[self.save_key]
+
+    self.locks = {
+      ((2,5,1,3,4,7), 3): [2,3,5,4,1,7],
+      ((1,2,3,4,4,3,2,1), 4): [1,4,2,3,3,2,4,1]
+    }
+
+  def get_description(self):
+
+    s = self.description
+
+    if self.is_locked:
+      s += ' The door is locked. '
+      s += self.challenge
+    else:
+      s += ' The door is unlocked!'
+
+    return s
+
+  def is_named(self, name):
+    return name in ['door', 'shuffle', 'shuffle door']
+
+  def do(self, player, command):
+
+    if self.is_my_command(command, 'enter') or command in ['w', 'west']:
+
+      if self.is_locked:
+        print('The {} is locked.'.format(self.name))
+        return True
+      
+      self.move_player(player, 'master_shufflecloset')
+      return True
+
+    if self.is_my_command(command, 'unlock'):
+      if self.try_unlock(player, command):
+        db[self.save_key] = self.is_locked
+        return True
+
+  def get_cyphers(self):
+    return self.locks.keys()
+
+  def check_secret(self, cypher, secret):
+    return secret == self.locks[cypher]

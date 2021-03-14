@@ -2,8 +2,8 @@ from item import Item
 
 class EasyChallengeBadge(Item):
 
-  def __init__(self):
-    self.id = 'master_easychallengebadge'
+  def __init__(self, num):
+    self.id = 'master_easychallengebadge' + str(num)
     self.name = 'Easy Challenge Badge'
     self.description = "The easy challenge badge, earned by completing an easy challenge."
 

@@ -8,13 +8,10 @@ class BoxKey(Item):
     self.description = "A rather plain key that can open the dungeon master's box."
 
   def is_named(self, name):
-    return name == 'key' or name == 'box key';
-
-  def do(self, player, command):
-    return False
+    return name in ['key', 'box key'];
 
   def unlock(self, item, cypher):  
-    return sorted(cypher) if cypher else None
+    return sorted(cypher)
 
 class SumKey(Item):
 
@@ -26,12 +23,9 @@ class SumKey(Item):
   def is_named(self, name):
     return name in ['key', 'sum', 'sum key']
 
-  def do(self, player, command):
-    return False
-
   def unlock(self, item, cypher):
     a, b = cypher
-    return a+b
+    return a + b
 
 class TwoSumKey(Item):
 
@@ -59,3 +53,27 @@ class TwoSumKey(Item):
         return [i, x[y]]
 
     return None
+
+class ShuffleKey(Item):
+
+  def __init__(self):
+    self.id = 'master_shufflekey'
+    self.name = "Shuffle Key"
+    self.description = "A rather plain key that can open the shuffle door."
+
+  def is_named(self, name):
+    return name in ['key', 'shuffle', 'shuffle key']
+
+  def unlock(self, item, cypher):
+
+    lst, n = cypher
+
+    lst1 = lst[:n]
+    lst2 = lst[n:]
+
+    result = []
+    for i in range(n):
+      result += [lst1[i], lst2[i]]
+    return result
+
+  

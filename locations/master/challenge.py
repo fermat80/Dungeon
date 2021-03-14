@@ -1,8 +1,10 @@
 from location import Location
 from items.master.doors import TwoSumDoor
 from items.master.doors import SumDoor
+from items.master.doors import ShuffleDoor
 from items.master.creatures import Dragon
 from items.master.badges import EasyChallengeBadge
+from items.master.keys import ShuffleKey
 
 class ChallengeArea(Location):
 
@@ -21,7 +23,7 @@ class ChallengeArea(Location):
       return self.move_player(player, 'master_easychallengeroom')
 
     if (command == 'e' or command == 'east'):
-      if 'master_easychallengebadge' in [x.id for x in player.contents]:
+      if any(['easychallengebadge' in x.id for x in player.contents]):
         return self.move_player(player, 'master_mediumchallengeroom')
       print('A mysterious force prevents you from moving to the medium challenge area.  You must first prove your worth!')
       return True
@@ -37,7 +39,7 @@ class EasyChallengeRoom(Location):
     self.id = 'master_easychallengeroom'
     self.name = 'Easy Challenge Room'
     self.description = 'This is the easy challenge room!  The challenge area is to the south.'
-    self.contents = [TwoSumDoor(), SumDoor()]
+    self.contents = [TwoSumDoor(), SumDoor(), ShuffleDoor(), ShuffleKey()]
     #self.contents = [TwoSumDoor()]
 
   def do(self, player, command):
@@ -77,9 +79,22 @@ class TwoSumCloset(Location):
     self.id = 'master_twosumcloset'
     self.name = 'Two-Sum Challenge Closet'
     self.description = 'This is the Two-Sum Challenge Closet!  You could only reach here by successfully unlocking the Two-Sum Door, congratulations!  The easy challenge room is to the south.'
-    self.contents = [EasyChallengeBadge()]
+    self.contents = [EasyChallengeBadge(1)]
 
   def do(self, player, command):
     if (command == 's' or command == 's'):
+      return self.move_player(player, 'master_easychallengeroom')
+    return False;
+
+class ShuffleCloset(Location):
+
+  def __init__(self):
+    self.id = 'master_shufflecloset'
+    self.name = 'Shuffle Challenge Closet'
+    self.description = 'This is the Shuffle Challenge Closet!  You could only reach here by successfully unlocking the Shuffle Door, congratulations!  The easy challenge room is to the east.'
+    self.contents = [EasyChallengeBadge(2)]
+
+  def do(self, player, command):
+    if (command == 'e' or command == 'e'):
       return self.move_player(player, 'master_easychallengeroom')
     return False;
