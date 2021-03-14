@@ -4,6 +4,7 @@ from item import Item;
 class Player(Item):
 
   def __init__(self, name, location):
+    self.id = 'player'
     self.name = name
     self.description = 'A player named ' + name
     self.location = location
@@ -103,8 +104,7 @@ class Player(Item):
             for item in from_item.contents:
               if item.is_named(item_name):
                 if from_item.can_be_taken_from(self, item):
-                  self.contents.append(item)
-                  from_item.contents.remove(item)
+                  item.move_to(self)
                   print('You take: ' + item.name)
                 else:
                   print('You cannot take: ' + item.name)
@@ -117,8 +117,7 @@ class Player(Item):
       for item in self.location.contents:
         if item.is_named(item_name.lower()):
           if item.can_be_taken_by(self):
-            self.contents.append(item)
-            self.location.contents.remove(item)
+            item.move_to(self)
             print('You take: ' + item.name)
           else:
             print('You cannot take: ' + item.name)
@@ -148,8 +147,7 @@ class Player(Item):
           for in_item in self.contents + self.location.contents:
             if in_item.is_named(in_item_name):
               if in_item.can_be_put_into(self, item):
-                in_item.contents.append(item)
-                self.contents.remove(item)
+                item.move_to(in_item)
                 print('You put {} in {}'.format(item.name, in_item.name))
               else:
                 print('You cannot put {} in {}'.format(item.name, in_item.name))
@@ -165,8 +163,7 @@ class Player(Item):
       item_name = command[5:]
       for item in self.contents:
         if item.is_named(item_name.lower()):
-          self.location.contents.append(item)
-          self.contents.remove(item)
+          item.move_to(self.location)
           print('You drop: ' + item.name)
           return True
 

@@ -62,6 +62,15 @@ class Item(object):
     player.location.display()
     return True
 
+  def move_item(self, item, parent_id):
+    if parent_id != item.parent.id:
+      if parent_id in settings.dungeon.locations:
+        item.move_to(settings.dungeon.locations[parent_id])
+      elif parent_id in settings.dungeon.items:
+        item.move_to(settings.dungeon.locations[parent_id])
+      elif parent_id == settings.dungeon.player.id:
+        item.move_to(settings.dungeon.player)
+
   def do(self, player, command):
     return False
 
@@ -127,3 +136,12 @@ class Item(object):
 
   def check_secret(self, cypher, secret):
     return False
+
+  def move_to(self, parent):
+    self.parent.contents.remove(self)
+    parent.contents.append(self)
+    self.parent = parent
+    db[self.location_save_key()] = parent.id
+
+  def location_save_key(self):
+    return ('Dungeon', self.id + '_location')

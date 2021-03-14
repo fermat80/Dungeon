@@ -20,6 +20,7 @@ class Box(Item):
 
   # Single words that allow us to look at or take this object...
   def is_named(self, name):
+    print('My parent is: ' + self.parent.name)
     return name == 'box'
     
   # This is optional!  But allows you to add code when creating the description.
