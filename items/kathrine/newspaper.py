@@ -5,7 +5,7 @@ class Newspaper(Item):
   def __init__(self):
     self.id = 'Kathrine.newspaper'
     self.name = 'Newspaper'
-    self.description = "Today's newspaper. You can 'read' it."
+    self.description = "Today's newspaper"
 
   def do(self, player, command):
     if command == 'read newspaper'or command=='read paper'or command=='read news':

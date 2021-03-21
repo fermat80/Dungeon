@@ -11,7 +11,7 @@ class Book(Item):
     self.is_open = False
 
   def is_named(self, name):
-    return name == 'biome_book'
+    return name == 'biome book'
 
 
 

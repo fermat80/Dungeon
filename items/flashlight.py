@@ -3,6 +3,8 @@ from item import Item
 
 class Flashlight(Item):
 
+  is_FlashlightOn = False
+
   def __init__(self):
 
     # These are required for all items...
@@ -10,12 +12,9 @@ class Flashlight(Item):
     self.name = 'A Flashlight'
     self.description = 'A magic Flashlight'
 
-    # This is an extra variable that we will use to keep track of our status.
-    self.is_FlashlightOn = False
-
   # Single words that allow us to look at or take this object...
   def is_named(self, name):
-    return name == 'Flashlight'
+    return name == 'flashlight'
 
   def is_FlashlightOn(self):
     return self.is_FlashlightOn; 
@@ -28,7 +27,7 @@ class Flashlight(Item):
     return self.description + ' The Flashlight is off!'
   
   def do(self, player, command):
-    if command == 'turn on':      
+    if self.is_my_command(command, 'turn on'): # command == 'turn on':      
       if not self.is_FlashlightOn:
         print('You turn on the Flashlight to see things around you.')
         self.name = 'A Flashlight.'

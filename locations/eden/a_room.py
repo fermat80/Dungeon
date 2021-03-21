@@ -13,5 +13,5 @@ class Practice_Room(Location):
     self.id='practice_room'
     self.name="spell practice room"
     self.description='a wizard practice room'
-    self.contents=None
+    self.contents=[]
 

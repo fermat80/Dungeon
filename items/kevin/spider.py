@@ -15,6 +15,7 @@ class GiantSpider(Item):
         if item.name == 'Cat':
           print('The cat frantically tries to get out of your arms to attack the spider! The spider flees!')
           self.name = 'Gone Spider'
+          self.description = 'The spider has been chased deep into the forest'
           return True
       
       print('The spider spins you in a web! You feel yourself being dragged somewhere')
