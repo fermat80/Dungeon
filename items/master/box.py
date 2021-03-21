@@ -1,7 +1,6 @@
 import random
 from item import Item
-from .keys import TwoSumKey
-from .keys import SumKey
+from .keys import SumKey, TwoSumKey, ShuffleKey
 
 class Box(Item):
 
@@ -16,7 +15,7 @@ class Box(Item):
     self.is_lit = False
     self.is_locked = True
 
-    self.contents = [TwoSumKey(), SumKey()]
+    self.contents = [TwoSumKey(), SumKey(), ShuffleKey()]
 
   # Single words that allow us to look at or take this object...
   def is_named(self, name):

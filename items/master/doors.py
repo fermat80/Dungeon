@@ -217,3 +217,58 @@ Example 1:
     #  return secret == [2,3,5,4,1,7]
 
     return secret == self.locks[cypher]
+
+class MediumDoor(Item):
+
+  challenge = """
+Challenge coming soon!
+"""
+
+  def __init__(self):
+    self.id = 'master_mediumdoor'
+    self.name = 'Medium Door to the east'
+    self.description = "The medium challenge door. A work in progress."
+
+    self.is_locked = True
+    self.can_be_taken = False
+    self.save_key = ('master', self.id + "_lock")
+    
+    if self.save_key in db:
+      self.is_locked = db[self.save_key]
+
+  def get_description(self):
+
+    s = self.description
+
+    if self.is_locked:
+      s += ' The door is locked. '
+      s += self.challenge
+    else:
+      s += ' The door is unlocked!'
+
+    return s
+
+  def is_named(self, name):
+    return name in ['door', 'medium', 'medium door']
+
+  def do(self, player, command):
+
+    if self.is_my_command(command, 'enter') or command in ['e', 'east']:
+
+      if self.is_locked:
+        print('The {} is locked.'.format(self.name))
+        return True
+      
+      print('The door is unlocked, but the area to the east is not finished yet.')
+      return True
+
+    if self.is_my_command(command, 'unlock'):
+      if self.try_unlock(player, command):
+        db[self.save_key] = self.is_locked
+        return True
+
+  def get_cypher(self):
+    return None
+
+  def check_secret(self, cypher, secret):
+    return False

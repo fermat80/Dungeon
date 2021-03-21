@@ -1,10 +1,7 @@
 from location import Location
-from items.master.doors import TwoSumDoor
-from items.master.doors import SumDoor
-from items.master.doors import ShuffleDoor
+from items.master.doors import SumDoor, TwoSumDoor, ShuffleDoor, MediumDoor
 from items.master.creatures import Dragon
 from items.master.badges import EasyChallengeBadge
-from items.master.keys import ShuffleKey
 
 class ChallengeArea(Location):
 
@@ -39,8 +36,7 @@ class EasyChallengeRoom(Location):
     self.id = 'master_easychallengeroom'
     self.name = 'Easy Challenge Room'
     self.description = 'This is the easy challenge room!  The challenge area is to the south.'
-    self.contents = [TwoSumDoor(), SumDoor(), ShuffleDoor(), ShuffleKey()]
-    #self.contents = [TwoSumDoor()]
+    self.contents = [TwoSumDoor(), SumDoor(), ShuffleDoor()]
 
   def do(self, player, command):
     if (command == 's' or command == 'south'):
@@ -53,7 +49,7 @@ class MediumChallengeRoom(Location):
     self.id = 'master_mediumchallengeroom'
     self.name = 'Medium Challenge Room'
     self.description = 'This is the medium challenge room!  The challenge area is to the west.'
-    self.contents = []
+    self.contents = [MediumDoor()]
 
   def do(self, player, command):
     if (command == 'w' or command == 'west'):
