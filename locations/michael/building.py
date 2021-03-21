@@ -2,7 +2,7 @@ from location import Location
 from items.michael.notes import Note1
 from items.michael.notes import Note2
 from items.michael.well import Well
-#from items.michael.well import Key
+from items.michael.door import Door
 
 class Basement(Location):
 
@@ -36,16 +36,11 @@ class Well_Room(Location):
 
 class Hallway(Location):
 
-  Door=False
-
   def __init__(self):
     self.id = 'hallway'
     self.name = "Hallway"
     self.description = 'A hallway with a door on the other side. The door seems to need a key.'
-    self.contents = []
+    self.contents = [Door()]
 
   def do(self, player, command):
-    if (command == 'n' or command == 'north'):
-      self.move_player(player, 'basement')
-      return True;     
     return False;
