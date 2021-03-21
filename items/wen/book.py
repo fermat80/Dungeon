@@ -29,7 +29,7 @@ class Book(Item):
     return self.description + ' The book is closed!'
   
   def do(self, player, command):
-    if command == 'open book':  
+    if self.is_my_command(command, 'open'): # command == 'open book':  
       if not self.is_bookOpened and not Flashlight.is_FlashlightOn:
         print('You need to turn on the flashlight first.')
         self.name = 'A book with spells.'
