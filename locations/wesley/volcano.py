@@ -6,4 +6,4 @@ class Volcano(Location):
     self.id = 'Volcano_Biome'
     self.name = "Volcano"
     self.description = "You find yourself in a Volcano. On the ground you see a book covered with ash, you will need a key to open it."
-    self.contents = [Volcano()]
+    self.contents = []
