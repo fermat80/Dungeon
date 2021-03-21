@@ -34,8 +34,5 @@ class Well(Item):
   def is_named(self, name):
     return name == 'well'
 
-  def can_be_taken_by(self, player):
-    return True
-
   def can_be_put_into_by(self, player):
     return True

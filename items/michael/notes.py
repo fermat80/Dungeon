@@ -12,7 +12,11 @@ class Note1(Item):
   def do(self, player, command):
     if command == 'read note' or command=='read':
 
-      message = """How did you get here?"""
+      message = """
+      ====================
+      How did you get here?
+      ====================
+      """
 
       print(message)
       return True      
@@ -33,7 +37,11 @@ class Note2(Item):
   def do(self, player, command):
     if command == 'read note' or command=='read':
 
-      message = " Please take this as a warning. I advise you to leave, before I have to deal with you myself."
+      message = """ 
+      ============================================================================================
+      Please take this as a warning. I advise you to leave, before I have to deal with you myself.
+      ============================================================================================
+      """
 
 
       print(message)
