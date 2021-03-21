@@ -78,6 +78,8 @@ Output: Because nums[0] + nums[1] == 9, we return [0, 1].
 
   def get_description(self):
 
+    print('I am in: ' + self.parent.name)
+
     s = self.description
 
     if self.is_locked:
@@ -204,7 +206,14 @@ Example 1:
         return True
 
   def get_cyphers(self):
+    #return [((2,5,1,3,4,7), 3), ((1,2,3,4,4,3,2,1), 4)]
     return self.locks.keys()
 
   def check_secret(self, cypher, secret):
+    
+    #if cypher == ((2,5,1,3,4,7), 3):
+    #  return secret == [2,3,5,4,1,7]
+    #if cypher == ((2,5,1,3,4,7), 3):
+    #  return secret == [2,3,5,4,1,7]
+
     return secret == self.locks[cypher]
