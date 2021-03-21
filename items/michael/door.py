@@ -4,14 +4,14 @@ class Door(Item):
 
   def __init__(self):
 
-    self.id = 'michael.Door'
+    self.id = 'michael.door'
     self.name = 'A Door'
     self.description = 'A door. It seems to require a key that can unlock it.'
 
     self.is_locked = True
 
   def is_named(self, name):
-    return name == 'Door'
+    return name == 'door'
     
   def get_description(self):
     s = self.description
@@ -23,26 +23,11 @@ class Door(Item):
 
     return s
   
+  # Calling try_unlock() will use get_cypher(), unlock(), check_secret().
   def do(self, player, command):
-
     if self.is_my_command(command, 'unlock'):
+      return self.try_unlock(player, command)
 
-      if not self.is_locked:
-        print('The door is already unlocked.')
-        return True
-
-      key=True
-
-      for item in player.contents:         
-        result = item.unlock(self, key)
-        if result==True:
-          print('You try the ' + item.name)
-          print('You hear a faint click.')
-          self.is_locked = False
-          return True
-
-      print('None of the items you have seem to unlock the door.')
-      return True
-
-    return False
-
+  # The key was modified to have its unlock() return its id.
+  def check_secret(self, cypher, secret):
+    return secret == 'michael.key'
