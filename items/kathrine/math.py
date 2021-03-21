@@ -5,7 +5,7 @@ class Math(Item):
   def __init__(self):
     self.id = 'Kathrine.math'
     self.name = 'Math Problem'
-    self.description = "An easy math problem on a piece of wrinkled paper. "
+    self.description = "An easy math problem on a piece of wrinkled paper "
 
   def do(self, player, command):
     if command=='do test'or command=='do math test'or command=='test'or command=='do problem':

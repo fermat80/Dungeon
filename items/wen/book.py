@@ -58,4 +58,3 @@ class Book(Item):
         self.name = 'A book.'
         self.is_bookOpened = False
         return True
-
