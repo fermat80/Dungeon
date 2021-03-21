@@ -17,5 +17,8 @@ class Key(Item):
       return True      
     return False
 
+  def unlock(self, item, cypher):
+    return self.id
+
   def is_named(self, name):
     return name == 'key'
