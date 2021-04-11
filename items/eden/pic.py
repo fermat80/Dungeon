@@ -13,4 +13,4 @@ class Pic(Item):
 
     def do(self,player,command):
       if command=='take pic':
-        print('You study the pic, and then put it on the table.')
+        print('You study the pic, and then put it in your pocket.')
