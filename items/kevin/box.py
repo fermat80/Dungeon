@@ -6,7 +6,7 @@ class SpiderBox(Item):
     self.id = 'spider_box'
     self.name = 'Spider Box'
     self.description = 'A shining box'
-
+    self.is_locked = True
     self.can_be_taken = False
 
   def do(self, player, command):
