@@ -6,6 +6,7 @@ class GiantSpider(Item):
     self.id = 'giant_spider'
     self.name = 'Giant Spider'
     self.description = 'A giant enemy spider, it looks at you menacingly. You see a box right behind the spider. Do you wish to attack?'
+    self.can_be_taken = False
 
   def do(self, player, command):
 

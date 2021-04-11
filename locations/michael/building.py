@@ -39,8 +39,11 @@ class Hallway(Location):
   def __init__(self):
     self.id = 'hallway'
     self.name = "Hallway"
-    self.description = 'A hallway with a door on the other side. The door seems to need a key.'
+    self.description = 'A hallway with a door on the other side. The door seems to need a key. There is a room to the north.'
     self.contents = [Door()]
 
   def do(self, player, command):
+    if (command == 'n' or command == 'north'):
+      self.move_player(player, 'basement')
+      return True;     
     return False;
