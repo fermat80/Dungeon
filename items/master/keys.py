@@ -76,4 +76,17 @@ class ShuffleKey(Item):
       result += [lst1[i], lst2[i]]
     return result
 
+class SampleKey(Item):
+
+  def __init__(self):
+    self.id = 'master_samplekey'
+    self.name = "Sample Key"
+    self.description = "A rather plain key that can open some door."
   
+  def is_named(self, name):
+    return name in ['key', 'sample', 'sample key']
+
+  def unlock(self, item, cypher):
+    nums, n = cypher
+
+    return nums
