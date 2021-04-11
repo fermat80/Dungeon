@@ -22,7 +22,7 @@ class Dungeon:
     #self.players = {}
     #self.player_locations = {}
 
-    self.locations['tower_top'] = TowerTop()    
+    self.locations['tower_top'] = TowerTop() 
 
     modules = [eden, ethan, kathrine, kevin, master, michael, selena, wen, wesley]
 

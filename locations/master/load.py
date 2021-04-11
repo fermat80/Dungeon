@@ -16,4 +16,5 @@ def locations():
     HardChallengeRoom(),
     ChallengeArea(),
     TwoSumCloset(),
-    ShuffleCloset()]
+    ShuffleCloset()
+    ]

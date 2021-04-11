@@ -9,13 +9,16 @@ class Foyer(Location):
   def __init__(self):
     self.id = 'master_foyer'
     self.name = "Foyer of Dungeon Master's House"
-    self.description = "You are in the foyer of the dungeon master's house!  On a table, you see a letter that you can 'read'.  There is an open doorway leading to the north."    
+    self.description = "You are in the foyer of the dungeon master's house!  On a table, you see a letter that you can 'read'.  There is an open doorway leading to the north."
     self.contents = [Letter(), BoxKey()]
 
   def do(self, player, command):
+
     if (command == 'n' or command == 'north'):
       return self.move_player(player, 'master_gameroom')
+
     return False
+
 
 class GameRoom(Location):
 
