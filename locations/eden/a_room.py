@@ -1,17 +1,16 @@
 from location import Location 
 from items.eden.pic import Pic
+from .b_room import B_room
 
 class A_room(Location):
   def __init__(self):
     self.id='a_room'
     self.name='a wizard studying room'
-    self.description='room with light and picture on wall'
+    self.description='room with light and picture on wall westsouthwest is a duelling area.'
     self.contents=[Pic()]
+  def do(self,player,command):
+    if command in ["westsouthwest",'wsw']:
+      return self.move_player(player,B_room)
 
-class Practice_Room(Location):
-  def __init__(self):
-    self.id='practice_room'
-    self.name="spell practice room"
-    self.description='a wizard practice room'
-    self.contents=[]
+    
 
