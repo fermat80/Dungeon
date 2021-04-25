@@ -4,6 +4,7 @@ from items.kevin.fidget import FidgetCube
 from items.kevin.sign import Sign
 from items.kevin.spider import GiantSpider
 from items.kevin.keys import SumKey
+from items.kevin.box import SpiderBox
 
 class HobbitHole(Location):
 
@@ -46,7 +47,7 @@ class DarkForest(Location):
     self.id = 'dark_forest'
     self.name = 'Dark Forest'
     self.description = 'A dark and eerie forest, mysterious sounds surround you. You have heard many tales of people who never return from these woods.'
-    self.contents = [GiantSpider()]
+    self.contents = [GiantSpider(), SpiderBox()]
   
   def do(self, player, command):
     if (command == 'n' or command == 'north'):
