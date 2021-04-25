@@ -5,7 +5,7 @@ class Coat(Item):
   def __init__(self):
     self.id = 'Kathrine.coat'
     self.name = 'Coat'
-    self.description = "A fluffy orange coat made out of a fluffy orange tabby cat (:< "
+    self.description = "A fluffy orange coat made out of a fluffy orange tabby cat C:< "
 
     
         
