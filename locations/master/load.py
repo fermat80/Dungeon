@@ -1,5 +1,7 @@
 from .house import Foyer
 from .house import GameRoom
+from .house import TrollRoom
+from .house import TrollHole
 from .challenge import EasyChallengeRoom
 from .challenge import MediumChallengeRoom
 from .challenge import HardChallengeRoom
@@ -16,5 +18,7 @@ def locations():
     HardChallengeRoom(),
     ChallengeArea(),
     TwoSumCloset(),
-    ShuffleCloset()
+    ShuffleCloset(),
+    TrollHole(),
+    TrollRoom()
     ]
