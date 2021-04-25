@@ -1,4 +1,5 @@
 from item import Item
+from replit import db
 
 class SpiderBox(Item):
 
@@ -10,13 +11,12 @@ class SpiderBox(Item):
     self.can_be_taken = False
 
   def do(self, player, command):
-    if command == 'unlock box':
-      #if GiantSpider.name == 'Gone Spider':
-      #  print('The box clicks open!')
-      #else:
-      #  print('You cannot open the box, the spider is blocking it')
-      return True
-    return False
+    if command in ['open box', 'open spider box']:
+      if db[('kevin', 'spider_status')] == 'gone':
+        print('The box clicks open!')
+      else:
+        print('You cannot open the box, the spider is blocking it')
+    return True
     
   def is_named(self, name):
     return name == 'box'

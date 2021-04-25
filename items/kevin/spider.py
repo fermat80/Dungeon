@@ -1,4 +1,5 @@
 from item import Item
+from replit import db
 
 class GiantSpider(Item):
 
@@ -7,6 +8,7 @@ class GiantSpider(Item):
     self.name = 'Giant Spider'
     self.description = 'A giant enemy spider, it looks at you menacingly. You see a box right behind the spider. Do you wish to attack?'
     self.can_be_taken = False
+    db[('kevin', 'spider_status')] = 'alive'
 
   def do(self, player, command):
 
@@ -15,7 +17,7 @@ class GiantSpider(Item):
       for item in player.contents:
         if item.name == 'Cat':
           print('The cat frantically tries to get out of your arms to attack the spider! The spider flees!')
-          self.name = 'Gone Spider'
+          db[('kevin', 'spider_status')] = 'gone'
           self.description = 'The spider has been chased deep into the forest'
           return True
       
