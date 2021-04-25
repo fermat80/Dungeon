@@ -31,7 +31,7 @@ description = "Packrat parser interpreter"
 name = "arpeggio"
 optional = false
 python-versions = "*"
-version = "1.10.1"
+version = "1.10.2"
 
 [package.extras]
 dev = ["wheel", "mkdocs", "mike", "twine"]
@@ -264,8 +264,8 @@ antiorm = [
     {file = "antiorm-1.2.1.tar.gz", hash = "sha256:96eb1841ce5163db4cf1dc13f4499ec2d7cffc190cf724b78ffdd3e6b7c4ff93"},
 ]
 arpeggio = [
-    {file = "Arpeggio-1.10.1-py2.py3-none-any.whl", hash = "sha256:f01a330148d972714458faf7bc142e9780fb443d33bb2474e5df2ad0a81635bc"},
-    {file = "Arpeggio-1.10.1.tar.gz", hash = "sha256:920d12cc762edb2eb56daae64a14c93e43dc181b481c88fc79314c0df6ee639e"},
+    {file = "Arpeggio-1.10.2-py2.py3-none-any.whl", hash = "sha256:fed68a1cb7f529cbd4d725597cc811b7506885fcdef17d4cdcf564341a1e210b"},
+    {file = "Arpeggio-1.10.2.tar.gz", hash = "sha256:bfe349f252f82f82d84cb886f1d5081d1a31451e6045275e9f90b65d0daa06f1"},
 ]
 async-timeout = [
     {file = "async-timeout-3.0.1.tar.gz", hash = "sha256:0c3c816a028d47f659d6ff5c745cb2acf1f966da1fe5c19c77a70282b25f4c5f"},
