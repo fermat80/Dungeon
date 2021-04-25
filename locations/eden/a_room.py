@@ -1,6 +1,5 @@
 from location import Location 
 from items.eden.pic import Pic
-from .b_room import B_room
 
 class A_room(Location):
   def __init__(self):
@@ -10,7 +9,7 @@ class A_room(Location):
     self.contents=[Pic()]
   def do(self,player,command):
     if command in ["westsouthwest",'wsw']:
-      return self.move_player(player,B_room)
+      return self.move_player(player,"B_room")
 
     
 
