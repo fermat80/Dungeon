@@ -45,5 +45,9 @@ class Hallway(Location):
   def do(self, player, command):
     if (command == 'n' or command == 'north'):
       self.move_player(player, 'basement')
-      return True;     
+      return True;
+    '''
+    if (command == 's' or command == 'north') 
+      self.move_player(player, room)
+    '''    
     return False;
