@@ -13,10 +13,10 @@ class SpiderBox(Item):
   def do(self, player, command):
     if command in ['open box', 'open spider box']:
       if db[('kevin', 'spider_status')] == 'gone':
-        print('The box clicks open!')
+        print('The box clicks open! Theres nothing inside!')
       else:
         print('You cannot open the box, the spider is blocking it')
-    return True
+    return False
     
   def is_named(self, name):
     return name == 'box'
