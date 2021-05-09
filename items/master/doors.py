@@ -220,8 +220,14 @@ Example 1:
 
 class MediumDoor(Item):
 
+
   challenge = """
-Challenge coming soon!
+Given the array nums, return a sorted list the same numbers with no duplicates.
+
+Example:
+
+   Input: nums = [2,5,2,1,3,4,7,7,5]
+   Output: [1,2,3,4,5,7]
 """
 
   def __init__(self):
@@ -268,7 +274,7 @@ Challenge coming soon!
         return True
 
   def get_cypher(self):
-    return None
+    return [random.randint(0,100) for _ in range(200)]
 
   def check_secret(self, cypher, secret):
-    return False
+    return sorted(set(cypher)) == sorted(secret)
