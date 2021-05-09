@@ -12,4 +12,4 @@ class Coat(Item):
 
   def is_named(self, name):
     return name == 'coat'
-  
+  import os
