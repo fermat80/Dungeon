@@ -1,6 +1,8 @@
 from location import Location
 from items.wen.book import Book
 from items.wen.flashlight import Flashlight
+from items.wen.master_keys import TwoSumKey
+from items.wen.master_keys import ShuffleKey
 
 class Library(Location):
 
@@ -8,7 +10,7 @@ class Library(Location):
     self.id = 'wen_Library'
     self.name = "Dungeon Library"
     self.description = "You are in the library of the dungeon!  On one of the bookshelves, you'll find a book of spells.  There are spells you can learn to do magics to find ways to get yourself out of the Dungeon. You need the flashlight to to find the book of spells."    
-    self.contents = [Book(), Flashlight()]
+    self.contents = [Book(), Flashlight(),TwoSumKey(),ShuffleKey()]
     #self.contents = [Book()]
     
 
