@@ -3,6 +3,8 @@ from items.michael.notes import Note1
 from items.michael.notes import Note2
 from items.michael.well import Well
 from items.michael.door import Door
+from items.michael.master_keys import TwoSumKey
+from items.michael.master_keys import ShuffleKey
 
 class Basement(Location):
 
@@ -10,7 +12,7 @@ class Basement(Location):
     self.id = 'basement'
     self.name = "The Basement"
     self.description = "The walls are crumbly and you hear bats squeaking. There is a note on the floor. There are two doorways. One leads North and one leads South."    
-    self.contents = [Note1()]
+    self.contents = [Note1(), TwoSumKey(), ShuffleKey()]
 
   def do(self, player, command):
     if (command == 'n' or command == 'north'):
